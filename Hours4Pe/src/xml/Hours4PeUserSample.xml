@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<user nom_user="Girardin" prenom="Emmanuelle" id_user="1"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance"
+	xsd:noNamespaceSchemaLocation="Hours4PeUserSchema.xsd">
+
+	<ecoles>
+		<ecole nom_ecole="calmette" direction="Roger Manequin" id_ecole="1" monday="300" tuesday="300"
+			wednesday="300" thursday="300" friday="300">
+			<adresse numero="5" rue="rue des patates" zip="76330" ville="lyon"/>
+			</ecole>
+	</ecoles>
+
+	<planning>
+		<jour date="2017-09-04" ecole="calmette"></jour>
+	</planning>
+
+</user>

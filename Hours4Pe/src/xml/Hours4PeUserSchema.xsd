@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+	<xs:attribute name="nom_user" type="xs:string" />
+	<xs:attribute name="prenom" type="xs:string" />
+	<xs:attribute name="direction" type="xs:string" />
+	<xs:attribute name="nom_ecole" type="xs:string" />
+	<xs:attribute name="ecole" type="xs:string" />
+	<xs:attribute name="date" type="xs:date" />
+	<xs:attribute name="monday" type="xs:positiveInteger" />
+	<xs:attribute name="tuesday" type="xs:positiveInteger" />
+	<xs:attribute name="wednesday" type="xs:positiveInteger" />
+	<xs:attribute name="thursday" type="xs:positiveInteger" />
+	<xs:attribute name="friday" type="xs:positiveInteger" />
+	<xs:attribute name="id_user" type="xs:positiveInteger" />
+	<xs:attribute name="id_ecole" type="xs:positiveInteger" />
+	<xs:attribute name="numero" type="xs:positiveInteger" />
+	<xs:attribute name="rue" type="xs:string" />
+	<xs:attribute name="zip" type="xs:positiveInteger" />
+	<xs:attribute name="ville" type="xs:string" />
+
+	<xs:element name="adresse">
+		<xs:complexType>
+			<xs:attribute ref="numero" use="required" />
+			<xs:attribute ref="rue" use="required" />
+			<xs:attribute ref="zip" use="required" />
+			<xs:attribute ref="ville" use="required" />
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="ecole">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="adresse" minOccurs="1" />
+			</xs:sequence>
+			<xs:attribute ref="nom_ecole" use="required" />
+			<xs:attribute ref="direction" use="required" />
+			<xs:attribute ref="id_ecole" use="required" />
+			<xs:attribute ref="monday" use="required" />
+			<xs:attribute ref="tuesday" use="required" />
+			<xs:attribute ref="wednesday" use="required" />
+			<xs:attribute ref="thursday" use="required" />
+			<xs:attribute ref="friday" use="required" />
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="ecoles">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="ecole" minOccurs="0" maxOccurs="unbounded"></xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+
+
+	<xs:element name="jour">
+		<xs:complexType>
+			<xs:attribute ref="date" use="required"></xs:attribute>
+			<xs:attribute ref="ecole" use="required"></xs:attribute>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="planning">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="jour" minOccurs="0" maxOccurs="unbounded"></xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="user">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="ecoles" minOccurs="1"></xs:element>
+				<xs:element ref="planning" minOccurs="1"></xs:element>
+			</xs:sequence>
+			<xs:attribute ref="nom_user" use="required"></xs:attribute>
+			<xs:attribute ref="prenom" use="required"></xs:attribute>
+			<xs:attribute ref="id_user" use="required"></xs:attribute>
+		</xs:complexType>
+
+	</xs:element>
+</xs:schema>
