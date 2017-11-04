@@ -1,3 +1,42 @@
 
 PARSING ERROR
 For input string: ""
+
+PARSING ERROR
+cvc-minInclusive-valid : La valeur '0' n'est pas un facet valide par rapport à minInclusive '1' pour le type 'positiveInteger'.
+
+PARSING ERROR
+cvc-minInclusive-valid : La valeur '0' n'est pas un facet valide par rapport à minInclusive '1' pour le type 'positiveInteger'.
+
+PARSING ERROR
+cvc-minInclusive-valid : La valeur '0' n'est pas un facet valide par rapport à minInclusive '1' pour le type 'positiveInteger'.
+
+PARSING ERROR
+cvc-complex-type.4 : L'attribut 'ville' doit figurer dans l'élément 'adresse'.
+
+PARSING ERROR
+com.sun.org.apache.xerces.internal.dom.DeferredTextImpl cannot be cast to org.w3c.dom.Element
+
+PARSING ERROR
+com.sun.org.apache.xerces.internal.dom.DeferredTextImpl cannot be cast to org.w3c.dom.Element
+
+PARSING ERROR
+com.sun.org.apache.xerces.internal.dom.DeferredTextImpl cannot be cast to org.w3c.dom.Element
+
+PARSING ERROR
+null
+
+PARSING ERROR
+null
+
+PARSING ERROR
+For input string: ""
+
+PARSING ERROR
+cvc-datatype-valid.1.2.1 : '2017-00-10' n'est pas une valeur valide pour 'date'.
+
+PARSING ERROR
+cvc-complex-type.2.4.a : Contenu non valide trouvé à partir de l'élément 'planning'. L'une des valeurs '{ecole}' est attendue.
+
+PARSING ERROR
+cvc-complex-type.2.4.a : Contenu non valide trouvé à partir de l'élément 'planning'. L'une des valeurs '{ecole}' est attendue.

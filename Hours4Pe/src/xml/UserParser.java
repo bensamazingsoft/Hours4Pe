@@ -60,19 +60,20 @@ public class UserParser {
 			for (int i = 0; i < ecoles.getLength(); i++) {
 
 				Element ecoleElt = (Element) ecoles.item(i);
-				Node adresseNode = ecoles.item(i).getFirstChild();
+				Node adresseNode = ecoleElt.getElementsByTagName("adresse").item(0);
 				Element adresseElt = (Element) adresseNode;
-				int numero = Integer.parseInt(adresseElt.getElementsByTagName("numero").item(0).getTextContent());
-				String rue = adresseElt.getElementsByTagName("rue").item(0).getTextContent();
-				int zip = Integer.parseInt(adresseElt.getElementsByTagName("zip").item(0).getTextContent());
-				String ville = adresseElt.getElementsByTagName("ville").item(0).getTextContent();
+				int numero = Integer.parseInt(adresseElt.getAttribute("numero"));
+				String rue =adresseElt.getAttribute("rue");
+				int zip = Integer.parseInt(adresseElt.getAttribute("zip"));
+				String ville = adresseElt.getAttribute("ville");
 
 				Adresse adresse = new Adresse(numero, rue, zip, ville);
 
-				String nom = ecoleElt.getAttribute("nom");
+				String nom = ecoleElt.getAttribute("nom_ecole");
 				String direction = ecoleElt.getAttribute("direction");
 
 				Ecole ecole = new Ecole(adresse, nom, direction);
+				ecole.setId(Integer.parseInt(ecoleElt.getAttribute("id_ecole")));
 
 				ecole.getHoraires().put(DayOfWeek.MONDAY,
 						Duration.ofMinutes(Long.parseLong(ecoleElt.getAttribute("monday"))));

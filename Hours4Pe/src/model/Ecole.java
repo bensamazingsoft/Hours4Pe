@@ -2,9 +2,10 @@ package model;
 
 import java.time.DayOfWeek;
 import java.time.Duration;
+import java.util.HashMap;
 import java.util.Map;
 
-public class Ecole {
+public class Ecole implements Comparable<Ecole> {
 
 	private static int idEcole;
 	private int id;
@@ -15,34 +16,36 @@ public class Ecole {
 
 	public Ecole() {
 
+		idEcole++;
 		this.id = idEcole;
 		this.adresse = null;
 		this.nom = "";
 		this.direction = "";
 
+		this.horaires = new HashMap<DayOfWeek, Duration>();
 		this.horaires.put(DayOfWeek.MONDAY, null);
 		this.horaires.put(DayOfWeek.TUESDAY, null);
 		this.horaires.put(DayOfWeek.WEDNESDAY, null);
 		this.horaires.put(DayOfWeek.THURSDAY, null);
 		this.horaires.put(DayOfWeek.FRIDAY, null);
 
-		idEcole++;
 	}
 
 	public Ecole(Adresse adresse, String nom, String direction) {
 
+		idEcole++;
 		this.id = idEcole;
 		this.adresse = adresse;
 		this.nom = nom;
 		this.direction = direction;
 
+		this.horaires = new HashMap<DayOfWeek, Duration>();
 		this.horaires.put(DayOfWeek.MONDAY, null);
 		this.horaires.put(DayOfWeek.TUESDAY, null);
 		this.horaires.put(DayOfWeek.WEDNESDAY, null);
 		this.horaires.put(DayOfWeek.THURSDAY, null);
 		this.horaires.put(DayOfWeek.FRIDAY, null);
 
-		idEcole++;
 	}
 
 	/*
@@ -136,6 +139,14 @@ public class Ecole {
 	 */
 	public void setHoraires(Map<DayOfWeek, Duration> horaires) {
 		this.horaires = horaires;
+	}
+
+	@Override
+	public int compareTo(Ecole other) {
+		int result;
+		
+		result = this.getNom().compareTo(other.getNom());
+		return result;
 	}
 
 	// }}}

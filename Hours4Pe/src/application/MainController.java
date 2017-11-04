@@ -26,13 +26,14 @@ public class MainController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		user = (userFile.exists()) ? loaduser() : createUser();
+		
 		userLbl.setText(user.getNom() + " " + user.getPrenom());
-		System.out.println(user.getNom());
-		saveFile();
+		
 	}
 
 	private Utilisateur createUser() {
 		NewUserWindow.display(user);
+		saveFile();
 		return user;
 	}
 
@@ -40,7 +41,7 @@ public class MainController implements Initializable {
 
 		UserParser parser = new UserParser();
 		user = parser.getUser();
-		
+
 		return user;
 	}
 
@@ -49,5 +50,9 @@ public class MainController implements Initializable {
 		fileSaver = new FileSaver(user);
 		fileSaver.writeXml();
 
+	}
+	
+	public void openSchools(){
+		NewSchoolWindow.display(user);
 	}
 }

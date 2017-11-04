@@ -3,7 +3,6 @@ package xml;
 import static utils.LogGenerator.log;
 
 import java.io.File;
-import java.text.SimpleDateFormat;
 import java.time.DayOfWeek;
 
 import javax.swing.JOptionPane;
@@ -89,10 +88,10 @@ public class FileSaver {
 					Attr rueAttr = doc.createAttribute("rue");
 					rueAttr.setValue(ecole.getAdresse().getRue());
 					adresseElt.setAttributeNode(rueAttr);
-					Attr villeAttr = doc.createAttribute("rue");
+					Attr villeAttr = doc.createAttribute("ville");
 					villeAttr.setValue(ecole.getAdresse().getVille());
 					adresseElt.setAttributeNode(villeAttr);
-					ecoleElt.appendChild(ecoleElt);
+					ecoleElt.appendChild(adresseElt);
 
 					Attr directionAttr = doc.createAttribute("direction");
 					directionAttr.setValue(ecole.getDirection());
@@ -130,7 +129,7 @@ public class FileSaver {
 
 					Element jourElt = doc.createElement("jour");
 					Attr dateAttr = doc.createAttribute("date");
-					dateAttr.setValue(new SimpleDateFormat("yyyy-mm-dd").format(date));
+					dateAttr.setValue(String.valueOf(date));
 					jourElt.setAttributeNode(dateAttr);
 					Attr ecoleAttr = doc.createAttribute("ecole");
 					ecoleAttr.setValue(ecole.getNom());

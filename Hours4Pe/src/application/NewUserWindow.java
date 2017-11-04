@@ -1,5 +1,7 @@
 package application;
 
+import java.util.function.UnaryOperator;
+
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.geometry.Insets;
@@ -7,6 +9,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextFormatter;
+import javafx.scene.control.TextFormatter.Change;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
@@ -24,6 +28,13 @@ public class NewUserWindow {
 		nameTf.setPromptText("Nom");
 		TextField prenomTf = new TextField();
 		prenomTf.setPromptText("Prénom");
+		
+		UnaryOperator<Change> txtFilter = getFilter();
+		TextFormatter<String> txtFormat =  new TextFormatter<String>(txtFilter);
+		TextFormatter<String> txtFormat2 =  new TextFormatter<String>(txtFilter);
+		
+		nameTf.setTextFormatter(txtFormat);
+		prenomTf.setTextFormatter(txtFormat2);
 
 		nameTf.focusedProperty().addListener(new ChangeListener<Boolean>() {
 
@@ -79,6 +90,21 @@ public class NewUserWindow {
 		window.setScene(scene);
 		window.showAndWait();
 
+	}
+
+	private static UnaryOperator<Change> getFilter() {
+		return change -> {
+			String text = change.getText();
+			
+			if (!change.isContentChange()){
+				return change;
+			}
+			
+			if (text.matches("[a-zA-Z\\-]*") || text.isEmpty()){
+				return change;
+			}
+			return null;
+		};
 	}
 
 }
