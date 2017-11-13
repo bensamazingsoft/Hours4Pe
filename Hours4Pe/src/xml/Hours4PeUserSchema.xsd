@@ -7,17 +7,18 @@
 	<xs:attribute name="nom_ecole" type="xs:string" />
 	<xs:attribute name="ecole" type="xs:string" />
 	<xs:attribute name="date" type="xs:date" />
-	<xs:attribute name="monday" type="xs:positiveInteger" />
-	<xs:attribute name="tuesday" type="xs:positiveInteger" />
-	<xs:attribute name="wednesday" type="xs:positiveInteger" />
-	<xs:attribute name="thursday" type="xs:positiveInteger" />
-	<xs:attribute name="friday" type="xs:positiveInteger" />
+	<xs:attribute name="monday" type="xs:nonNegativeInteger" />
+	<xs:attribute name="tuesday" type="xs:nonNegativeInteger" />
+	<xs:attribute name="wednesday" type="xs:nonNegativeInteger" />
+	<xs:attribute name="thursday" type="xs:nonNegativeInteger" />
+	<xs:attribute name="friday" type="xs:nonNegativeInteger" />
 	<xs:attribute name="id_user" type="xs:positiveInteger" />
 	<xs:attribute name="id_ecole" type="xs:positiveInteger" />
-	<xs:attribute name="numero" type="xs:positiveInteger" />
+	<xs:attribute name="numero" type="xs:nonNegativeInteger" />
 	<xs:attribute name="rue" type="xs:string" />
 	<xs:attribute name="zip" type="xs:positiveInteger" />
 	<xs:attribute name="ville" type="xs:string" />
+	<xs:attribute name="kms" type="xs:nonNegativeInteger"></xs:attribute>
 
 	<xs:element name="adresse">
 		<xs:complexType>
@@ -41,6 +42,7 @@
 			<xs:attribute ref="wednesday" use="required" />
 			<xs:attribute ref="thursday" use="required" />
 			<xs:attribute ref="friday" use="required" />
+			<xs:attribute ref="kms" use="required" />
 		</xs:complexType>
 	</xs:element>
 

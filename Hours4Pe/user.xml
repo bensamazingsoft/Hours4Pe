@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<user id_user="1" nom_user="Basile" prenom="Doudou">
+  <ecoles>
+    <ecole direction="Maman" friday="480" id_ecole="1" kms="12" monday="480" nom_ecole="Maison" thursday="480" tuesday="360" wednesday="360">
+      <adresse numero="867" rue="route de Chalamont" ville="Eurre" zip="26400"/>
+    </ecole>
+  </ecoles>
+  <planning>
+    <jour date="2017-06-14" ecole="Maison"/>
+    <jour date="2017-09-13" ecole="Maison"/>
+    <jour date="2017-09-14" ecole="Maison"/>
+    <jour date="2017-09-19" ecole="Maison"/>
+    <jour date="2017-10-11" ecole="Maison"/>
+    <jour date="2017-11-14" ecole="Maison"/>
+    <jour date="2017-11-27" ecole="Maison"/>
+    <jour date="2017-12-13" ecole="Maison"/>
+    <jour date="2017-12-14" ecole="Maison"/>
+    <jour date="2017-12-21" ecole="Maison"/>
+    <jour date="2018-01-18" ecole="Maison"/>
+  </planning>
+</user>

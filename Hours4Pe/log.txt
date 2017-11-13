@@ -40,3 +40,12 @@ cvc-complex-type.2.4.a : Contenu non valide trouvé à partir de l'élément 'planni
 
 PARSING ERROR
 cvc-complex-type.2.4.a : Contenu non valide trouvé à partir de l'élément 'planning'. L'une des valeurs '{ecole}' est attendue.
+
+PARSING ERROR
+cvc-datatype-valid.1.2.1 : '' n'est pas une valeur valide pour 'integer'.
+
+PARSING ERROR
+cvc-datatype-valid.1.2.1 : '' n'est pas une valeur valide pour 'integer'.
+
+PARSING ERROR
+cvc-minInclusive-valid : La valeur '0' n'est pas un facet valide par rapport à minInclusive '1' pour le type 'positiveInteger'.

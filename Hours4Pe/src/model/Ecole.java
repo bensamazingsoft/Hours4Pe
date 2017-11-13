@@ -12,6 +12,15 @@ public class Ecole implements Comparable<Ecole> {
 	private Adresse adresse;
 	private String nom;
 	private String direction;
+	private int kms;
+//	private Long lundi;
+//	private Long mardi;
+//	private Long mercredi;
+//	private Long jeudi;
+//	private Long vendredi;
+	
+
+
 	private Map<DayOfWeek, Duration> horaires;
 
 	public Ecole() {
@@ -21,6 +30,7 @@ public class Ecole implements Comparable<Ecole> {
 		this.adresse = null;
 		this.nom = "";
 		this.direction = "";
+		this.kms = 0;
 
 		this.horaires = new HashMap<DayOfWeek, Duration>();
 		this.horaires.put(DayOfWeek.MONDAY, null);
@@ -31,13 +41,14 @@ public class Ecole implements Comparable<Ecole> {
 
 	}
 
-	public Ecole(Adresse adresse, String nom, String direction) {
+	public Ecole(Adresse adresse, String nom, String direction, int kms) {
 
 		idEcole++;
 		this.id = idEcole;
 		this.adresse = adresse;
 		this.nom = nom;
 		this.direction = direction;
+		this.kms = kms;
 
 		this.horaires = new HashMap<DayOfWeek, Duration>();
 		this.horaires.put(DayOfWeek.MONDAY, null);
@@ -140,12 +151,44 @@ public class Ecole implements Comparable<Ecole> {
 	public void setHoraires(Map<DayOfWeek, Duration> horaires) {
 		this.horaires = horaires;
 	}
+	
+	/**
+	 * @return the kms
+	 */
+	public int getKms() {
+		return kms;
+	}
 
+	/**
+	 * @param kms the kms to set
+	 */
+	public void setKms(int kms) {
+		this.kms = kms;
+	}
+	
+	public Long getLundi(){
+		return this.getHoraires().get(DayOfWeek.MONDAY).toHours();
+	}
+
+	public Long getMardi(){
+		return this.getHoraires().get(DayOfWeek.TUESDAY).toHours();
+	}
+	
+	public Long getMercredi(){
+		return this.getHoraires().get(DayOfWeek.WEDNESDAY).toHours();
+	}
+	public Long getJeudi(){
+		return this.getHoraires().get(DayOfWeek.THURSDAY).toHours();
+	}
+	public Long getVendredi(){
+		return this.getHoraires().get(DayOfWeek.FRIDAY).toHours();
+	}
+	
 	@Override
 	public int compareTo(Ecole other) {
 		int result;
 		
-		result = this.getNom().compareTo(other.getNom());
+		result = Integer.compare(this.getId(),other.getId());
 		return result;
 	}
 

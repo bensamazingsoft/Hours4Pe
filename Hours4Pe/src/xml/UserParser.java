@@ -71,8 +71,10 @@ public class UserParser {
 
 				String nom = ecoleElt.getAttribute("nom_ecole");
 				String direction = ecoleElt.getAttribute("direction");
+				
+				int kms = Integer.parseInt(ecoleElt.getAttribute("kms"));
 
-				Ecole ecole = new Ecole(adresse, nom, direction);
+				Ecole ecole = new Ecole(adresse, nom, direction,kms);
 				ecole.setId(Integer.parseInt(ecoleElt.getAttribute("id_ecole")));
 
 				ecole.getHoraires().put(DayOfWeek.MONDAY,

@@ -24,9 +24,9 @@ import xml.FileSaver;
 
 public class NewSchoolWindow {
 
-	private static Label nom, direction, numero, rue, zip, ville, horaire, lundi, mardi, mercredi, jeudi, vendredi,
+	private static Label nom, direction, numero, rue, zip, ville, kms, lundi, mardi, mercredi, jeudi, vendredi,
 			info;
-	private static TextField nomTf, directionTf, numeroTf, rueTf, zipTf, villeTf, lundiTf, mardiTf, mercrediTf, jeudiTf,
+	private static TextField nomTf, directionTf, numeroTf, rueTf, zipTf, villeTf, kmsTf, lundiTf, mardiTf, mercrediTf, jeudiTf,
 			vendrediTf;
 
 	public static void display(Utilisateur user) {
@@ -34,13 +34,13 @@ public class NewSchoolWindow {
 		Stage window = new Stage();
 		Scene scene;
 		Button saveSchoolBut = new Button("Enregistrer");
-		Label label = new Label("Ajouter une école");
+		Label label = (Main.isFirstUse()) ? new Label("Enregistrer l'école de rattachement") :new Label("Ajouter une école");
 
-		UnaryOperator<Change> txtFilter = getFilter();
+
 
 		GridPane gp = new GridPane();
 		gp.setAlignment(Pos.CENTER);
-		gp.setHalignment(saveSchoolBut, HPos.RIGHT);
+		GridPane.setHalignment(saveSchoolBut, HPos.RIGHT);
 		gp.setHgap(10);
 		gp.setVgap(10);
 		gp.setPadding(new Insets(25, 25, 25, 25));
@@ -52,13 +52,14 @@ public class NewSchoolWindow {
 		rue = new Label("Rue");
 		zip = new Label("Code Postal");
 		ville = new Label("Ville");
-		horaire = new Label("Horaires:");
 		lundi = new Label("Lundi");
 		mardi = new Label("Mardi");
 		mercredi = new Label("Mercredi");
 		jeudi = new Label("Jeudi");
 		vendredi = new Label("Vendredi");
+		kms = new Label("Kms");
 		info = new Label("");
+		
 
 		nomTf = new TextField();
 		nomTf.setPromptText("ex. \"Garibaldi\"");
@@ -78,6 +79,11 @@ public class NewSchoolWindow {
 		rueTf = new TextField();
 		rueTf.setPromptText("ex. \"rue des Hirondelles\"");
 		rueTf.setTextFormatter(getTextFormatter());
+		
+		kmsTf = new TextField();
+		kmsTf.setPromptText("ex. \"35\"");
+		kmsTf.setTextFormatter(new TextFormatter<String>(getNumFilter()));
+		
 		lundiTf = new TextField();
 		lundiTf.setPromptText("ex. \"8\"");
 		lundiTf.setMaxWidth(55);
@@ -99,30 +105,33 @@ public class NewSchoolWindow {
 		vendrediTf.setMaxWidth(55);
 		vendrediTf.setTextFormatter(new TextFormatter<String>(getNumFilter()));
 
-		gp.add(nom, 0, 0);
-		gp.add(nomTf, 1, 0);
-		gp.add(direction, 0, 1);
-		gp.add(directionTf, 1, 1);
-		gp.add(numero, 0, 2);
-		gp.add(numeroTf, 1, 2);
-		gp.add(rue, 0, 3);
-		gp.add(rueTf, 1, 3);
-		gp.add(zip, 0, 4);
-		gp.add(zipTf, 1, 4);
-		gp.add(ville, 0, 5);
-		gp.add(villeTf, 1, 5);
-		gp.add(lundi, 0, 6);
-		gp.add(lundiTf, 1, 6);
-		gp.add(mardi, 0, 7);
-		gp.add(mardiTf, 1, 7);
-		gp.add(mercredi, 0, 8);
-		gp.add(mercrediTf, 1, 8);
-		gp.add(jeudi, 0, 9);
-		gp.add(jeudiTf, 1, 9);
-		gp.add(vendredi, 0, 10);
-		gp.add(vendrediTf, 1, 10);
-		gp.add(saveSchoolBut, 1, 11);
-		gp.add(info, 1, 12);
+		gp.add(label, 0, 0);
+		gp.add(nom, 0, 1);
+		gp.add(nomTf, 1, 1);
+		gp.add(direction, 0, 2);
+		gp.add(directionTf, 1, 2);
+		gp.add(numero, 0, 3);
+		gp.add(numeroTf, 1, 3);
+		gp.add(rue, 0, 4);
+		gp.add(rueTf, 1, 4);
+		gp.add(zip, 0, 5);
+		gp.add(zipTf, 1, 5);
+		gp.add(ville, 0, 6);
+		gp.add(villeTf, 1, 6);
+		gp.add(kms, 0, 7);
+		gp.add(kmsTf, 1, 7);
+		gp.add(lundi, 0, 8);
+		gp.add(lundiTf, 1, 8);
+		gp.add(mardi, 0, 9);
+		gp.add(mardiTf, 1, 9);
+		gp.add(mercredi, 0, 10);
+		gp.add(mercrediTf, 1,10);
+		gp.add(jeudi, 0, 11);
+		gp.add(jeudiTf, 1, 11);
+		gp.add(vendredi, 0, 12);
+		gp.add(vendrediTf, 1, 12);
+		gp.add(saveSchoolBut, 1, 13);
+		gp.add(info, 1, 14);
 
 		saveSchoolBut.setOnAction(e -> {
 
@@ -130,9 +139,10 @@ public class NewSchoolWindow {
 					&& rueTf.getText().length() != 0 && zipTf.getText().length() != 0 && villeTf.getText().length() != 0
 					&& lundiTf.getText().length() != 0 && mardiTf.getText().length() != 0
 					&& mercrediTf.getText().length() != 0 && jeudiTf.getText().length() != 0
-					&& vendrediTf.getText().length() != 0) {
+					&& vendrediTf.getText().length() != 0 && kmsTf.getText().length() != 0) {
 
 				addSchool(user);
+				Main.setFirstUse(false);
 				window.close();
 			} else {
 				info.setStyle("-fx-text-fill: red");
@@ -160,6 +170,7 @@ public class NewSchoolWindow {
 		newSchool.setNom(nomTf.getText());
 		newSchool.setDirection(directionTf.getText());
 		newSchool.setAdresse(newSchoolAdress);
+		newSchool.setKms(Integer.parseInt(kmsTf.getText()));
 		newSchool.getHoraires().put(DayOfWeek.MONDAY, Duration.ofMinutes(Long.parseLong(lundiTf.getText()) * 60));
 		newSchool.getHoraires().put(DayOfWeek.TUESDAY, Duration.ofMinutes(Long.parseLong(mardiTf.getText()) * 60));
 		newSchool.getHoraires().put(DayOfWeek.WEDNESDAY, Duration.ofMinutes(Long.parseLong(mercrediTf.getText()) * 60));
@@ -169,6 +180,7 @@ public class NewSchoolWindow {
 		user.getEcoles().add(newSchool);
 		FileSaver fs = new FileSaver(user);
 		fs.writeXml();
+		Main.initTable();
 		
 	}
 

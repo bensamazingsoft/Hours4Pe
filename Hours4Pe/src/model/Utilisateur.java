@@ -2,7 +2,7 @@ package model;
 
 import java.time.LocalDate;
 import java.util.Map;
-import java.util.Set;
+import java.util.SortedSet;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
@@ -12,7 +12,7 @@ public class Utilisateur {
 	private int userId;
 	private String nom, prenom;
 	private Map<LocalDate, Ecole> planning = new TreeMap<>();
-	private Set<Ecole> ecoles = new TreeSet<>();
+	private SortedSet<Ecole> ecoles = new TreeSet<>();
 
 	public Utilisateur() {
 		nom = "";
@@ -77,7 +77,7 @@ public class Utilisateur {
 	/**
 	 * @return the ecoles
 	 */
-	public Set<Ecole> getEcoles() {
+	public SortedSet<Ecole> getEcoles() {
 		return ecoles;
 	}
 
@@ -85,7 +85,7 @@ public class Utilisateur {
 	 * @param ecoles
 	 *            the ecoles to set
 	 */
-	public void setEcoles(Set<Ecole> ecoles) {
+	public void setEcoles(SortedSet<Ecole> ecoles) {
 		this.ecoles = ecoles;
 	}
 

@@ -71,7 +71,6 @@ public class NewUserWindow {
 			user.setNom(nameTf.getText());
 			user.setPrenom(prenomTf.getText());
 			window.close();
-
 		});
 
 		window.setTitle("Hours4Pe - nouvel utilisateur");

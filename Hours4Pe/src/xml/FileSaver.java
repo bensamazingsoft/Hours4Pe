@@ -100,6 +100,10 @@ public class FileSaver {
 					Attr id_ecoleAttr = doc.createAttribute("id_ecole");
 					id_ecoleAttr.setValue(String.valueOf(ecole.getId()));
 					ecoleElt.setAttributeNode(id_ecoleAttr);
+					
+					Attr kmsAttr = doc.createAttribute("kms");
+					kmsAttr.setValue(String.valueOf(ecole.getKms()));
+					ecoleElt.setAttributeNode(kmsAttr);
 
 					Attr mondayAttr = doc.createAttribute("monday");
 					mondayAttr.setValue(String.valueOf((ecole.getHoraires().get(DayOfWeek.MONDAY)).toMinutes()));
