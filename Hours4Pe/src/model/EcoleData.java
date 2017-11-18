@@ -3,13 +3,16 @@ package model;
 import java.time.Month;
 import java.util.ArrayList;
 
+import application.AnneeScolaire;
+
 public class EcoleData {
 
 	Utilisateur user;
 	Ecole ecole;
+	AnneeScolaire currAnneeSco;
 
 	String nom;
-	
+
 	Long sept;
 	Long oct;
 	Long nov;
@@ -22,12 +25,12 @@ public class EcoleData {
 	Long juin;
 	Long juill;
 
-	public EcoleData(Utilisateur user, Ecole ecole) {
+	public EcoleData(Utilisateur user, Ecole ecole, AnneeScolaire currAnneeSco) {
 
 		this.user = user;
 		this.ecole = ecole;
 		this.nom = ecole.getNom();
-
+		this.currAnneeSco = currAnneeSco;
 
 	}
 
@@ -35,9 +38,9 @@ public class EcoleData {
 		ArrayList<Long> tempTab = new ArrayList<>();
 
 		this.user.getPlanning().forEach((date, ecole) -> {
-			if (date.getMonth().equals(month)){
+			if (date.getMonth().equals(month) && currAnneeSco.isAnneeSco(date) && this.ecole.equals(ecole)) {
 				tempTab.add((this.user.getPlanning().get(date).getHoraires().get(date.getDayOfWeek())).toHours());
-			
+
 			}
 		});
 
@@ -117,7 +120,7 @@ public class EcoleData {
 	 *            the janv to set
 	 */
 	public void setJanv(Long janv) {
-		janv = janv;
+		this.janv = janv;
 	}
 
 	/**
@@ -218,7 +221,8 @@ public class EcoleData {
 	}
 
 	/**
-	 * @param nom the nom to set
+	 * @param nom
+	 *            the nom to set
 	 */
 	public void setNom(String nom) {
 		this.nom = nom;

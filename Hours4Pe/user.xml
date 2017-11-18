@@ -1,21 +1,40 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<user id_user="1" nom_user="Basile" prenom="Doudou">
+<user id_user="1" nom_user="Ben" prenom="Mouginot">
   <ecoles>
-    <ecole direction="Maman" friday="480" id_ecole="1" kms="12" monday="480" nom_ecole="Maison" thursday="480" tuesday="360" wednesday="360">
-      <adresse numero="867" rue="route de Chalamont" ville="Eurre" zip="26400"/>
+    <ecole direction="Mr Bouchon" friday="120" id_ecole="1" kms="20" monday="480" nom_ecole="Calmette" thursday="240" tuesday="120" wednesday="180">
+      <adresse numero="32" rue="rue Qui Monte" ville="Port-Jerome" zip="76330"/>
+    </ecole>
+    <ecole direction="Mme de la MolleFaisse" friday="360" id_ecole="2" kms="27" monday="480" nom_ecole="Professeur Roux" thursday="480" tuesday="300" wednesday="240">
+      <adresse numero="2" rue="avenue des Petits Canards" ville="Lillebonne" zip="76321"/>
+    </ecole>
+    <ecole direction="Pierre Curie" friday="480" id_ecole="3" kms="12" monday="300" nom_ecole="Marie Curie" thursday="300" tuesday="420" wednesday="300">
+      <adresse numero="645" rue="rue des Patates" ville="Eurre" zip="26400"/>
+    </ecole>
+    <ecole direction="Casimir" friday="180" id_ecole="4" kms="65" monday="300" nom_ecole="Casimir School" thursday="480" tuesday="480" wednesday="900">
+      <adresse numero="645" rue="rue des Nuages" ville="Le Ciel" zip="654123"/>
+    </ecole>
+    <ecole direction="tete" friday="120" id_ecole="5" kms="32" monday="120" nom_ecole="Plop" thursday="300" tuesday="120" wednesday="480">
+      <adresse numero="22" rue="jh" ville="jb" zip="541561"/>
     </ecole>
   </ecoles>
   <planning>
-    <jour date="2017-06-14" ecole="Maison"/>
-    <jour date="2017-09-13" ecole="Maison"/>
-    <jour date="2017-09-14" ecole="Maison"/>
-    <jour date="2017-09-19" ecole="Maison"/>
-    <jour date="2017-10-11" ecole="Maison"/>
-    <jour date="2017-11-14" ecole="Maison"/>
-    <jour date="2017-11-27" ecole="Maison"/>
-    <jour date="2017-12-13" ecole="Maison"/>
-    <jour date="2017-12-14" ecole="Maison"/>
-    <jour date="2017-12-21" ecole="Maison"/>
-    <jour date="2018-01-18" ecole="Maison"/>
+    <jour date="2017-11-15" ecole="Professeur Roux"/>
+    <jour date="2017-11-16" ecole="Professeur Roux"/>
+    <jour date="2017-11-17" ecole="Professeur Roux"/>
+    <jour date="2017-11-20" ecole="Professeur Roux"/>
+    <jour date="2017-11-21" ecole="Professeur Roux"/>
+    <jour date="2017-11-22" ecole="Professeur Roux"/>
+    <jour date="2017-12-13" ecole="Marie Curie"/>
+    <jour date="2018-02-06" ecole="Plop"/>
+    <jour date="2018-02-08" ecole="Marie Curie"/>
+    <jour date="2018-02-14" ecole="Plop"/>
+    <jour date="2018-02-20" ecole="Marie Curie"/>
+    <jour date="2018-02-22" ecole="Plop"/>
+    <jour date="2018-03-14" ecole="Casimir School"/>
+    <jour date="2018-03-19" ecole="Plop"/>
+    <jour date="2018-03-20" ecole="Casimir School"/>
+    <jour date="2018-03-21" ecole="Professeur Roux"/>
+    <jour date="2018-03-22" ecole="Calmette"/>
+    <jour date="2018-03-29" ecole="Casimir School"/>
   </planning>
 </user>

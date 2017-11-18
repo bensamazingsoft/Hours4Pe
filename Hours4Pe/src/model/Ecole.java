@@ -152,6 +152,15 @@ public class Ecole implements Comparable<Ecole> {
 		this.horaires = horaires;
 	}
 	
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		
+		return super.equals(obj);
+	}
+
 	/**
 	 * @return the kms
 	 */

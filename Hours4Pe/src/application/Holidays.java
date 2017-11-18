@@ -1,6 +1,6 @@
 package application;
 
-import static application.Main.prop;
+import static application.Main.properties;
 
 import java.time.LocalDate;
 import java.util.HashMap;
@@ -75,17 +75,17 @@ public class Holidays {
 
 	public static Map<Holidays.ZONE, Set<Integer>> getZoneDept() {
 
-		String[] AdeptList = prop.getProperty("Adept").split(",");
+		String[] AdeptList = properties.getProperty("Adept").split(",");
 		for (String str : AdeptList) {
 			Adepts.add(Integer.parseInt(str));
 		}
 
-		String[] BdeptList = prop.getProperty("Bdept").split(",");
+		String[] BdeptList = properties.getProperty("Bdept").split(",");
 		for (String str : BdeptList) {
 			Bdepts.add(Integer.parseInt(str));
 		}
 
-		String[] CdeptList = prop.getProperty("Cdept").split(",");
+		String[] CdeptList = properties.getProperty("Cdept").split(",");
 		for (String str : CdeptList) {
 			Cdepts.add(Integer.parseInt(str));
 		}
